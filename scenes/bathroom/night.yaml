@@ -1,0 +1,8 @@
+name: bathroom night
+entities:
+  light.bathroom_main:
+    state: "off"
+  light.bathroom_mirror:
+    brightness: 1
+    state: "on"
+    color_temp: 650

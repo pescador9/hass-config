@@ -1,0 +1,31 @@
+alias: bathroom routine
+trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_sensor_bathroom
+    to: "on"
+condition:
+  - condition: state
+    entity_id: input_boolean.run_morning_routine
+    state: "on"
+action:
+
+# add turn on backend
+
+  - service: media_player.select_source
+    data:
+      source: duschen
+      entity_id: media_player.symfonisk
+  - service: media_player.shuffle_set
+    data:
+      shuffle: true
+      entity_id: media_player.symfonisk
+  - service: media_player.media_next_track
+    data:
+      entity_id: media_player.symfonisk
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.symfonisk
+      volume_level: 0.15
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.run_morning_routine

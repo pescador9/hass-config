@@ -1,0 +1,32 @@
+name: main night
+icon: mdi:weather-night
+entities:
+  light.desk_lamp:
+    state: "off"
+  light.light_strip:
+    state: "off"
+  light.chandelier:
+    state: "off"
+  light.dining_table:
+    state: "off"
+
+  light.shelf_hue_filament:
+    brightness: 1
+    state: "on"
+  light.shelf_tint_filament_edison:
+    brightness: 1
+    color_temp: 555
+    state: "on"
+  light.shelf_tint_filament_globe:
+    brightness: 1
+    color_temp: 555
+    state: "on"
+  light.chess_lamp:
+    brightness: 50
+    color_temp: 555
+    state: "on"
+
+  light.bedlampje:
+    brightness: 1
+    color_temp: 555
+    state: "on"

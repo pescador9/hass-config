@@ -1,0 +1,6 @@
+name: bathroom off
+entities:
+  light.bathroom_main:
+    state: "off"
+  light.bathroom_mirror:
+    state: "off"

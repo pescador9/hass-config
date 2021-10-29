@@ -1,0 +1,9 @@
+alias: locate vac on backend off
+trigger:
+  platform: state
+  entity_id: switch.desk_backend
+  to: "off"
+action:
+  - service: vacuum.locate
+    target:
+      entity_id: vacuum.pauls_putze

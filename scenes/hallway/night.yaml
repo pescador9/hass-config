@@ -1,0 +1,5 @@
+name: hallway night
+entities:
+  light.tarnaby:
+    brightness: 50
+    state: "on"

@@ -1,0 +1,49 @@
+alias: hue tap switch
+trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: hue_tap_switch
+action:
+  - choose:
+      # button one
+      - conditions:
+          - condition: template
+            value_template: "{{trigger.event.data.event == 34 }}"
+        sequence:
+          - service: light.toggle
+            data:
+              entity_id: light.desk
+              brightness: 255
+      # button two
+      - conditions:
+          - condition: template
+            value_template: "{{trigger.event.data.event == 16 }}"
+        sequence:
+          - service: switch.toggle
+            data:
+              entity_id: switch.desk_frontend
+          - wait_for_trigger:
+              platform: state
+              entity_id: switch.desk_frontend
+            timeout: "00:00:05"
+          - service: tts.google_translate_say
+            data:
+              entity_id: media_player.sonos_one
+              message: >
+                Frontend turned {{ states('switch.desk_frontend') }}
+
+      # "domain": "tts",
+      #         "service": "google_translate_say",
+      #         "service_data": {
+      #             "entity_id": "media_player.sonos_one",
+      #             "message": "Marmalade"
+
+      # button four
+      - conditions:
+          - condition: template
+            value_template: "{{trigger.event.data.event == 18 }}"
+        sequence:
+          - service: switch.toggle
+            data:
+              entity_id: switch.desk_backend

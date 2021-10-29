@@ -1,0 +1,38 @@
+name: main bright
+icon: mdi:lightbulb-on
+entities:
+  # desk
+  light.desk_lamp:
+    state: "on"
+    brightness: 255
+  light.light_strip:
+    state: "on"
+    brightness: 255
+
+  # dining table
+  light.dining_table:
+    state: "on"
+    brightness: 150
+
+  # shelf
+  light.shelf_hue_filament:
+    brightness: 1
+    state: "on"
+  light.shelf_tint_filament_edison:
+    brightness: 2
+    color_temp: 555
+    state: "on"
+  light.shelf_tint_filament_globe:
+    brightness: 2
+    color_temp: 555
+    supported_features: 43
+    state: "on"
+
+  # bedsite
+  light.chandelier:
+    state: "on"
+    brightness: 255
+  light.bedlampje:
+    brightness: 2
+    color_temp: 555
+    state: "on"

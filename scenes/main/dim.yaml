@@ -1,0 +1,32 @@
+name: main dim
+icon: mdi:lightbulb-on-outline
+entities:
+  light.desk_lamp:
+    state: "off"
+  light.light_strip:
+    state: "on"
+    brightness: 255
+
+  light.dining_table:
+    state: "off"
+
+  light.chandelier:
+    state: "on"
+    brightness: 1
+
+  light.shelf_hue_filament:
+    brightness: 1
+    state: "on"
+  light.shelf_tint_filament_edison:
+    brightness: 2
+    color_temp: 555
+    state: "on"
+  light.shelf_tint_filament_globe:
+    brightness: 2
+    color_temp: 555
+    state: "on"
+
+  light.bedlampje:
+    brightness: 2
+    color_temp: 555
+    state: "on"

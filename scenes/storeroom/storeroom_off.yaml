@@ -1,0 +1,4 @@
+name: storeroom off
+entities:
+  light.storeroom_lamp:
+    state: "off"

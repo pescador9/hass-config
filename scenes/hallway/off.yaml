@@ -1,0 +1,8 @@
+name: hallway off
+entities:
+  light.tarnaby:
+    state: "off"
+  light.hallway_east:
+    state: "off"
+  light.hallway_west:
+    state: "off"

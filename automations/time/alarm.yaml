@@ -1,0 +1,57 @@
+alias: 20 minutes before alarm routine
+trigger:
+  platform: time
+  at: input_datetime.before_alarm
+condition:
+  - condition: time
+    before: "11:00:00"
+  - condition: state
+    entity_id: person.paul
+    state: "home"
+action:
+  # turn off candle mode
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.candle_mode
+
+  # turn on symfonisk (+its automation)
+  - service: input_boolean.turn_on
+    entity_id: input_boolean.run_morning_routine
+  - service: switch.turn_on
+    entity_id: switch.bathroom_switch
+
+  # open covers
+  - service: cover.set_cover_position
+    data:
+      entity_id: cover.covers
+      position: 100
+
+  # turn on desk backend
+  - service: switch.turn_on
+    data:
+      entity_id: switch.desk_backend
+  - wait_for_trigger:
+      platform: state
+      entity_id: media_player.sonos_one
+      from: "unavailable"
+    timeout:
+      minutes: 3
+  - delay: "00:00:10"
+
+  # play music
+  - service: media_player.volume_set
+    data:
+      volume_level: 0.04
+    target:
+      entity_id: media_player.sonos_one
+  - service: media_player.select_source
+    data:
+      source: chill
+    target:
+      entity_id: media_player.sonos_one
+  - service: media_player.shuffle_set
+    target:
+      entity_id: media_player.sonos_one
+  - service: media_player.media_next_track
+    data:
+      entity_id: media_player.sonos_one

@@ -1,0 +1,32 @@
+- id: '1615141859980'
+  alias: Kitchen Light Control
+  description: ''
+  use_blueprint:
+    path: switches/ikea_dimmer.yaml
+    input:
+      switch_entity: 895887f4b206ba8b1e86b527e2939ab1
+      light_entity:
+        entity_id:
+        - light.kitchen_light_cabinet
+        - light.kitchen_lamp_main
+- id: '1615141988907'
+  alias: Bed Light Control
+  description: ''
+  use_blueprint:
+    path: switches/ikea_dimmer.yaml
+    input:
+      switch_entity: 433cbe02709e815180a3be41f97f1c06
+      light_entity:
+        entity_id: light.bedlampje
+- id: '1619218933573'
+  alias: Hue Dimmer Switch
+  description: ''
+  use_blueprint:
+    path: switches/hue_dimmer_switch.yaml
+    input:
+      switch_entity: 01c583bb22216288c893603bfe4e4503
+      light_entity:
+        entity_id:
+        - light.chandelier
+        - light.floor_lamp
+        area_id: woonkamer

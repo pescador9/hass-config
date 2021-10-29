@@ -1,0 +1,9 @@
+name: bathroom bright
+entities:
+  light.bathroom_main:
+    state: "on"
+    brightness: 254
+  light.bathroom_mirror:
+    state: "on"
+    brightness: 254
+    color_temp: 140

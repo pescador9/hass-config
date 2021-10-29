@@ -1,0 +1,44 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation mine: !include_dir_list automations/
+automation ui: !include automations.yaml
+script: !include scripts.yaml
+scene: !include_dir_list scenes/
+light: !include lights.yaml
+
+cover:
+  - platform: group
+    name: covers
+    entities:
+      - cover.fyrtur_left
+      - cover.fyrtur_right
+
+input_datetime:
+  before_alarm:
+    name: 20 minutes before alarm
+    has_date: true
+    has_time: true
+
+    
+# ---plants---
+    
+sensor:
+  - platform: miflora
+    mac: "C4:7C:8D:6C:6B:05"
+    name: mi flower care
+
+plant:
+  alocasia_amazonica:
+    sensors: 
+      moisture: sensor.mi_flower_care_moisture
+      temperature: sensor.mi_flower_care_temperature
+      brightness: sensor.mi_flower_care_light_intensity
+      conductivity: sensor.mi_flower_care_conductivity
+      battery: sensor.mi_flower_care_battery
+    max_moisture: 80

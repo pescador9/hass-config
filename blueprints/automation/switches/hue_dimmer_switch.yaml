@@ -1,0 +1,81 @@
+blueprint:
+  name: Hue Dimmer Switch
+  description: This blueprint is for the classic hue tap switch.
+  domain: automation
+  input:
+    switch_entity:
+      name: Switch
+      description: The switch entity that will controll the light(s).
+      selector:
+        device:
+          integration: deconz
+          manufacturer: Philips
+          model: RWL021
+    light_entity:
+      name: Controlled Light
+      description: The light(s) that will be controlled by the selected switch.
+      selector:
+        target:
+          entity:
+            domain: light
+
+mode: restart
+
+trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      device_id: !input switch_entity
+
+action:
+  - variables:
+      event: "{{ trigger.event.data.event }}"
+  - choose:
+      - conditions:
+          - "{{ event == 1000 }}"
+        sequence:
+          - service: light.turn_on
+            data:
+              transition: 2
+            target: !input light_entity
+
+      - conditions:
+          - "{{ event == 4000 }}"
+        sequence:
+          - service: light.turn_off
+            target: !input light_entity
+
+      - conditions:
+          - "{{ event in (1001, 2001) }}"
+        sequence:
+          repeat:
+            while:
+              - condition: template
+                value_template: "{{ repeat.index < 10 }}"
+            sequence:
+              - service: light.turn_on
+                target: !input light_entity
+                data:
+                  transition: 1
+                  brightness_step_pct: "{{ 10 if event == 1001 else -10 }}"
+              - delay: 1
+
+      - conditions:
+          - "{{ event in (1001, 2001) }}"
+        sequence:
+          repeat:
+            while:
+              - condition: template
+                value_template: "{{ repeat.index < 10 }}"
+            sequence:
+              - service: light.turn_on
+                target: !input light_entity
+                data:
+                  transition: 1
+                  brightness_step_pct: 10
+              - delay: 1
+      - conditions:
+          - "{{ event in (1003, 2003) }}"
+        sequence:
+          - service: light.turn_on
+            target: !input light_entity

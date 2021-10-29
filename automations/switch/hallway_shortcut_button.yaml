@@ -1,0 +1,19 @@
+trigger:
+  - platform: event
+    event_type: deconz_event
+    event_data:
+      id: tradfri_shortcut_button
+
+action:
+  - variables:
+      event: "{{ trigger.event.data.event }}"
+  - choose:
+      - conditions:
+          - "{{ event == 1002 }}"
+        sequence:
+          - service: scene.turn_on
+            target:
+              entity_id: scene.hallway_off
+          - service: scene.turn_on
+            target:
+              entity_id: scene.bathroom_off

@@ -1,0 +1,17 @@
+name: TV night
+icon: hass:television
+entities:
+  light.driftwood_lamp:
+    state: "on"
+    brightness: 100
+    color_temp: 650
+  light.window_lamp:
+    state: "on"
+    brightness: 254
+    color_temp: 555
+  light.hanging_lamp_upper:
+    state: "off"
+  light.hanging_lamp_middle:
+    state: "off"
+  light.hanging_lamp_lower:
+    state: "off"

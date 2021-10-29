@@ -1,0 +1,28 @@
+alias: bathroom motion
+mode: single
+max_exceeded: silent
+trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_sensor_bathroom
+action:
+  - choose:
+      ### state is now on
+      - conditions: >
+          {{ states('binary_sensor.motion_sensor_bathroom') == 'on' }}
+        sequence:
+          - choose:
+              ### candle mode on
+              - conditions: >
+                  {{ states('input_boolean.candle_mode') == 'on' }}
+                sequence:
+                  - scene: scene.bathroom_night
+            ### bright light
+            default:
+              - scene: scene.bathroom_bright
+          - wait_for_trigger:
+              platform: state
+              entity_id: binary_sensor.motion_sensor_bathroom
+              to: "off"
+              for: "00:03:00"
+          - scene: scene.bathroom_off
+

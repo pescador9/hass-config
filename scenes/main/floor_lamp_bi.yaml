@@ -1,0 +1,24 @@
+name: floor lamp bi
+icon: mdi:string-lights
+entities:
+  light.floor_lamp_color_1:
+    brightness: 50
+    rgb_color:
+      - 199
+      - 21
+      - 133
+    state: "on"
+  light.floor_lamp_color_2:
+    brightness: 50
+    rgb_color:
+      - 0
+      - 0
+      - 255
+    state: "on"
+  light.floor_lamp_color_3:
+    brightness: 50
+    rgb_color:
+      - 255
+      - 20
+      - 147
+    state: "on"

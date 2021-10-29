@@ -1,0 +1,14 @@
+alias: update 20 minutes before alarm
+trigger:
+  platform: state
+  entity_id: sensor.next_alarm
+action:
+  - service: input_datetime.set_datetime
+    entity_id: input_datetime.before_alarm
+    data:
+      datetime: >
+        {{ (( states('sensor.next_alarm') | as_timestamp )  -60*20)  | timestamp_custom("%Y-%m-%d %H:%M:%S") }}
+  - service: notify.mobile_app_pauls_oneplus_5t
+    data:
+      title: "Alarm updated"
+      message: "{{ states('input_datetime.before_alarm') }}"

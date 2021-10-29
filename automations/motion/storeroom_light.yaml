@@ -1,0 +1,17 @@
+alias: storeroom motion
+mode: single
+max_exceeded: silent
+trigger:
+  - platform: state
+    entity_id: binary_sensor.storeroom_sensor
+    to: "on"
+action:
+  - scene: scene.storeroom_on
+  
+  - wait_for_trigger:
+      - platform: state
+        entity_id: binary_sensor.storeroom_sensor
+        to: "off"
+        for: "00:01:00"
+        
+  - scene: scene.storeroom_off

@@ -1,0 +1,16 @@
+!*.yaml
+!.gitignore
+!*.md
+
+.storage
+.cloud
+.google.token
+*log*
+*.db*
+custom_components
+www
+tts
+
+ip_bans.yaml
+*secret*
+*known_devices*

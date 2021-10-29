@@ -1,0 +1,10 @@
+alias: paul surface state update
+trigger:
+  - platform: state
+    entity_id: device_tracker.paul_surface
+action:
+  - service: notify.mobile_app_pauls_oneplus_5t
+    data:
+      title: "Pauls Surface State Updated:"
+      message: >
+        {{ states('device_tracker.paul_surface') }}

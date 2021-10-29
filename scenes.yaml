@@ -1,0 +1,59 @@
+- id: '1635360765731'
+  name: TV night
+  entities:
+    light.driftwood_lamp:
+      min_mireds: 140
+      max_mireds: 650
+      supported_color_modes:
+      - color_temp
+      color_mode: color_temp
+      brightness: 102
+      color_temp: 650
+      is_deconz_group: false
+      friendly_name: driftwood_lamp
+      supported_features: 40
+      state: 'on'
+    light.hanging_lamp_upper:
+      min_mireds: 140
+      max_mireds: 650
+      supported_color_modes:
+      - color_temp
+      is_deconz_group: false
+      friendly_name: hanging_lamp_upper
+      supported_features: 40
+      state: 'off'
+    light.hanging_lamp_middle:
+      min_mireds: 140
+      max_mireds: 650
+      supported_color_modes:
+      - color_temp
+      is_deconz_group: false
+      friendly_name: hanging_lamp_middle
+      supported_features: 40
+      state: 'off'
+    light.hanging_lamp_lower:
+      min_mireds: 140
+      max_mireds: 650
+      supported_color_modes:
+      - color_temp
+      is_deconz_group: false
+      friendly_name: hanging_lamp_lower
+      supported_features: 40
+      state: 'off'
+    light.chess_lamp:
+      min_mireds: 140
+      max_mireds: 650
+      effect_list:
+      - colorloop
+      supported_color_modes:
+      - color_temp
+      - hs
+      - xy
+      color_mode: color_temp
+      brightness: 254
+      color_temp: 650
+      is_deconz_group: false
+      friendly_name: window_lamp
+      supported_features: 44
+      state: 'on'
+  icon: hass:television

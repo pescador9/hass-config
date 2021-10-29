@@ -1,0 +1,46 @@
+- platform: group
+  name: Shelf
+  entities:
+    - light.shelf_hue_filament
+    - light.shelf_tint_filament_globe
+    - light.shelf_tint_filament_edison
+    - light.shelf4
+    - light.chess_lamp
+
+- platform: group
+  name: Chandelier
+  entities:
+    - light.chan1
+    - light.chan2
+    - light.chan3
+    - light.chan4
+    - light.chan5
+
+- platform: group
+  name: Desk
+  entities:
+    - light.desk_lamp
+    - light.light_strip
+    
+- platform: group
+  name: Dining Table
+  entities:
+    - light.dining_table_1
+    - light.dining_table_2
+    - light.dining_table_3
+    - light.dining_table_4
+
+- platform: group
+  name: Kitchen
+  entities:
+    - light.kitchen_lamp_main
+    - light.kitchen_light_cabinet
+    
+- platform: group
+  name: Floor Lamp
+  entities:
+    - light.floor_lamp_color_1
+    - light.floor_lamp_color_2
+    - light.floor_lamp_color_3
+    - light.floor_lamp_filament_1
+    - light.floor_lamp_filament_2

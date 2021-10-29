@@ -1,0 +1,5 @@
+name: storeroom on
+entities:
+  light.storeroom_lamp:
+    state: "on"
+    brightness: 254

@@ -1,0 +1,12 @@
+name: hallway bright
+entities:
+  light.hallway_east:
+    brightness: 254
+    color_temp: 650
+    state: "on"
+  light.hallway_west:
+    brightness: 254
+    state: "on"
+  light.tarnaby:
+    brightness: 100
+    state: "on"

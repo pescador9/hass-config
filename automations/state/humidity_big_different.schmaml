@@ -1,0 +1,12 @@
+trigger:
+  - platform: template
+    value_template: >
+      {{ ( states('sensor.bathroom_humidity') | int- states('sensor.main_humidity') | int) |abs> 5}}
+    for: "00:01:00"
+    
+    
+action:
+  - service: notify.mobile_app_pauls_oneplus_5t
+    data:
+      title: "Humidity big different"
+      message: keks
